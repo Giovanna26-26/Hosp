@@ -1,0 +1,189 @@
+<!-- carrosCadastro.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Veicular</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('./imagens/carro.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .caixa {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            color: #ffe815;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .grupo-campo {
+            margin-bottom: 20px;
+        }
+
+        .campo-input {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #fff;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .campo-input:focus {
+            outline: none;
+            border-bottom-color: #ffe815;
+        }
+
+        .botao-enviar {
+            background: #ffe815;
+            border: none;
+            padding: 14px;
+            color: #000;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .botao-enviar:hover {
+            background: #fcff53;
+        }
+
+        @media (max-width: 480px) {
+            .caixa {
+                padding: 20px;
+                width: 100%;
+                min-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa">
+        <h2>Cadastrar Veículo</h2>
+        <form id="formulario-carro">
+            <input type="hidden" id="cliente_id">
+
+            <div class="grupo-campo">
+                <input 
+                    type="text" 
+                    class="campo-input" 
+                    id="placa" 
+                    placeholder=" "
+                    required
+                >
+                <label for="placa">Placa (ABC1D23)</label>
+            </div>
+
+            <div class="grupo-campo">
+                <input 
+                    type="text" 
+                    class="campo-input" 
+                    id="chassi" 
+                    placeholder=" "
+                    required
+                >
+                <label for="chassi">Chassi</label>
+            </div>
+
+            <div class="grupo-campo">
+                <input 
+                    type="text" 
+                    class="campo-input" 
+                    id="marca" 
+                    placeholder=" "
+                    required
+                >
+                <label for="marca">Marca</label>
+            </div>
+
+            <div class="grupo-campo">
+                <input 
+                    type="text" 
+                    class="campo-input" 
+                    id="modelo" 
+                    placeholder=" "
+                    required
+                >
+                <label for="modelo">Modelo</label>
+            </div>
+
+            <div class="grupo-campo">
+                <input 
+                    type="text" 
+                    class="campo-input" 
+                    id="cor" 
+                    placeholder=" "
+                    required
+                >
+                <label for="cor">Cor</label>
+            </div>
+
+            <a href="../cadUsu/index.html"><button type="submit" class="botao-enviar">Cadastrar Carro</button></a>
+        </form>
+    </div>
+
+    <script>
+        // Obtém o ID do cliente da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const clienteId = urlParams.get('cliente_id');
+        document.getElementById('cliente_id').value = clienteId;
+
+        // Envio do formulário
+        document.getElementById('formulario-carro').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const dados = {
+                placa: document.getElementById('placa').value,
+                chassi: document.getElementById('chassi').value,
+                marca: document.getElementById('marca').value,
+                modelo: document.getElementById('modelo').value,
+                cor: document.getElementById('cor').value,
+                cliente_id: clienteId
+            };
+
+            try {
+                const resposta = await fetch('http://localhost:3000/cadastrar-carro', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dados)
+                });
+
+                const data = await resposta.json();
+
+                if (resposta.ok) {
+                    alert('Carro cadastrado!');
+                    window.location.reload();
+                } else {
+                    alert(data.error || 'Erro no cadastro');
+                }
+            } catch (erro) {
+                alert('Erro de comunicação: ' + erro.message);
+            }
+        });
+    </script>
+</body>
+</html>

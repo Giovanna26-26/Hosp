@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: #FFC107;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+nav ul li a:hover{
+    font-weight: bold;
+}
+.icones {
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    margin-top: 8px;
+    gap: 15px;
+    margin-right: 10px;
+    
+    
+}
+
+.icones i {
+    font-size: 20px;
+    cursor: pointer;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2c100;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav a.active {
+  text-decoration: underline;
+}
+
+.icons span {
+  margin-left: 15px;
+  font-size: 1.2rem;
+}
+
+.conteudo {
+    padding: 40px;
+    
+}
+
+.caixa-agendamentos {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin-top: 10px;
+   margin-left: 200px;
+}
+h2 {
+    width: fit-content;
+    border-bottom: 2px solid #FFC107;
+    padding-bottom: 5px;
+    margin: 20px 0px 20px 200px;
+    font-weight: 100;
+}
+.abas {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.aba {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    margin: 0px 100px 0px 100px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    
+    
+}
+
+.aba.ativa {
+    color: #f2c200;
+    border-bottom: 2px solid #f2c200;
+}
+
+.conteudo-agenda {
+    height: 200px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 10px 0 20px;
+    padding: 10px;
+}
+
+.botao-novo {
+    text-align: right;
+}
+
+.botao-novo button {
+    background-color: #f2c200;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+</style>
+</head>
+<body>
+        <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="../agendamento/agendamentos.html">Agendamentos</a></li>
+                <li><a href="../meuCarro/meusCarros.html">Carros</a></li>
+                <li><a href="../cadUsu/minhaConta.html">Minha Conta</a></li>
+            </ul>
+        </nav>
+        <div class="icones">
+            <a href="#"><img src="../imagens/icons8-sino-32.png" alt="Notificação" id="sino"></a>
+            <a href="../cadUsu/minhaConta.html"><img src="../imagens/icons8-usuário-32.png" alt="Usuário" id="user"></a>
+        </div>
+        </header>
+        <main class="conteudo">
+
+            <h2>MEUS AGENDAMENTOS:</h2>
+            <div class="caixa-agendamentos">
+                <div class="abas">
+                    <button class="aba ativa">Próximos</button>
+                    <button class="aba">Anteriores</button>
+                    <button class="aba">Todas</button>
+                </div>
+                <div class="conteudo-agenda">
+                   
+                </div>
+                <div class="botao-novo">
+                    <a href="../agendamento/novoAgendamento.html"><button>NOVO AGENDAMENTO</button></a>
+                </div>
+            </div>
+        </main>
+        </header>
+
+        <script>
+            const abas = document.querySelectorAll(".aba");
+            const conteudos = {
+                'Próximos': document.getElementById("proximos"),
+                'Anteriores': document.getElementById("anteriores"),
+                'Todas': document.getElementById("todas")
+            };
+        
+            abas.forEach(aba => {
+                aba.addEventListener("click", () => {
+                    // Remove classe ativa de todas as abas
+                    abas.forEach(btn => btn.classList.remove("ativa"));
+        
+                    // Esconde todos os conteúdos
+                    Object.values(conteudos).forEach(div => div.style.display = "none");
+        
+                    // Ativa a aba clicada
+                    aba.classList.add("ativa");
+        
+                    // Mostra o conteúdo correspondente
+                    const textoAba = aba.textContent.trim();
+                    if (conteudos[textoAba]) {
+                        conteudos[textoAba].style.display = "block";
+                    }
+                });
+            });
+        </script>
+</body>
+</html>

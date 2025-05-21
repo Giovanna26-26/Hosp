@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HospCar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('../imagens/carro.jpg') no-repeat center center/cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .caixa-principal {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            color: #ffe815;
+        }
+
+        .caixa-botoes {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .botao-alternar {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .botao-alternar.ativo {
+            color: #ffe815;
+            border-bottom-color: #ffe815;
+        }
+
+        .grupo-input {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .grupo-campo {
+            position: relative;
+        }
+
+        .campo-input {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid #fff;
+            color: #fff;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .campo-input:focus {
+            border-bottom-color: #ffe815;
+            outline: none;
+        }
+
+        .botao-enviar {
+            background: #ffe815;
+            border: none;
+            padding: 12px;
+            color: #000;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .botao-enviar:hover {
+            background: #fcff53;
+        }
+
+        .esqueceu-senha {
+            color: #e7a008;
+            font-size: 0.9rem;
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+        }
+
+        .oculto {
+            display: none;
+        }
+
+        .mensagem-erro {
+            color: #ff4444;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .caixa-principal {
+                padding: 25px;
+            }
+
+            .botao-alternar {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa-principal">
+        <div class="caixa-botoes">
+            <button class="botao-alternar ativo" onclick="mostrarLogin()">Entrar</button>
+            <button class="botao-alternar" onclick="mostrarCadastro()">Cadastrar</button>
+        </div>
+
+        <!-- Formulário de Login -->
+        <form id="formulario-login" class="grupo-input">
+            <div class="grupo-campo">
+                <input type="text" class="campo-input" placeholder=" " id="login-usuario" required>
+                <label for="login-usuario">Nome de usuário</label>
+            </div>
+            
+            <div class="grupo-campo">
+                <input type="password" class="campo-input" placeholder=" " id="login-senha" required>
+                <label for="login-senha">Senha</label>
+            </div>
+            
+           <button type="submit" class="botao-enviar"><a href="../cadUsu/menu.html">Entrar</a></button>
+            <a href="../esqueciSenha/esqueciSenha.html" class="esqueceu-senha">Esqueceu a senha?</a>
+            <div class="mensagem-erro" id="login-erro"></div>
+        </form>
+
+        <!-- Formulário de Cadastro -->
+        <form id="formulario-cadastro" class="grupo-input oculto">
+            <div class="grupo-campo">
+                <input type="text" class="campo-input" placeholder=" " id="nome" required>
+                <label for="nome">Nome completo</label>
+                <div class="mensagem-erro" id="nome-erro"></div>
+            </div>
+
+            <div class="grupo-campo">
+                <input 
+                    type="text" 
+                    class="campo-input" 
+                    placeholder=" " 
+                    id="cpf" 
+                    required 
+                    maxlength="14"
+                    oninput="formatarCPF(this)"
+                >
+                <label for="cpf">CPF</label>
+                <div class="mensagem-erro" id="cpf-erro"></div>
+            </div>
+
+            <div class="grupo-campo">
+                <input type="email" class="campo-input" placeholder=" " id="email" required>
+                <label for="email">E-mail</label>
+                <div class="mensagem-erro" id="email-erro"></div>
+            </div>
+
+            <div class="grupo-campo">
+                <input type="password" class="campo-input" placeholder=" " id="senha" required minlength="6">
+                <label for="senha">Senha (mínimo 6 caracteres)</label>
+                <div class="mensagem-erro" id="senha-erro"></div>
+            </div>
+
+            <button type="submit" class="botao-enviar"><a href="../cadUsu/menu.html">Criar Conta</a></button>
+            <div class="mensagem-erro" id="cadastro-erro"></div>
+        </form>
+    </div>
+
+    <script>
+        // Funções de alternância entre formulários
+        function mostrarLogin() {
+            document.getElementById("formulario-login").classList.remove("oculto");
+            document.getElementById("formulario-cadastro").classList.add("oculto");
+            document.querySelectorAll(".botao-alternar").forEach(btn => btn.classList.remove("ativo"));
+            document.querySelector(".caixa-botoes button:nth-child(1)").classList.add("ativo");
+        }
+
+        function mostrarCadastro() {
+            document.getElementById("formulario-cadastro").classList.remove("oculto");
+            document.getElementById("formulario-login").classList.add("oculto");
+            document.querySelectorAll(".botao-alternar").forEach(btn => btn.classList.remove("ativo"));
+            document.querySelector(".caixa-botoes button:nth-child(2)").classList.add("ativo");
+        }
+
+        // Formatação do CPF
+        function formatarCPF(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            
+            value = value.replace(/(\d{3})(\d)/, '$1.$2')
+                         .replace(/(\d{3})(\d)/, '$1.$2')
+                         .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            
+            input.value = value;
+        }
+
+        // Validação de formulários
+        function mostrarErro(elementId, mensagem) {
+            const elemento = document.getElementById(elementId);
+            elemento.textContent = mensagem;
+            elemento.style.display = 'block';
+        }
+
+        function limparErros() {
+            document.querySelectorAll('.mensagem-erro').forEach(el => {
+                el.style.display = 'none';
+            });
+        }
+
+        // Cadastro de cliente
+        document.getElementById('formulario-cadastro').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            limparErros();
+
+            const dadosCliente = {
+                username: document.getElementById('nome').value.trim(),
+                cpf: document.getElementById('cpf').value.replace(/\D/g, ''),
+                email: document.getElementById('email').value.trim(),
+                senha: document.getElementById('senha').value
+            };
+
+            // Validação básica
+            if (dadosCliente.cpf.length !== 11) {
+                return mostrarErro('cpf-erro', 'CPF deve conter 11 dígitos');
+            }
+
+            if (dadosCliente.senha.length < 6) {
+                return mostrarErro('senha-erro', 'Senha deve ter no mínimo 6 caracteres');
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/api/clientes', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dadosCliente)
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    window.location.href = `http://localhost:3000/cadastro-carro?cliente_id=${data.data.cliente_id}`;
+                } else {
+                    mostrarErro('cadastro-erro', data.message || 'Erro no cadastro');
+                }
+            } catch (error) {
+                mostrarErro('cadastro-erro', 'Erro na comunicação com o servidor');
+            }
+        });
+
+        // Login do usuário
+        document.getElementById('formulario-login').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            limparErros();
+
+            const dadosLogin = {
+                username: document.getElementById('login-usuario').value.trim(),
+                senha: document.getElementById('login-senha').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dadosLogin)
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    const primeiroNome = data.nome.split(' ')[0];
+                    window.location.href = `/menu.html?nome=${encodeURIComponent(primeiroNome)}`;
+                } else {
+                    mostrarErro('login-erro', data.message || 'Credenciais inválidas');
+                }
+            } catch (error) {
+                mostrarErro('login-erro', 'Erro na comunicação com o servidor');
+            }
+        });
+    </script>
+</body>
+</html>

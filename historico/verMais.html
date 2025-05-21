@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Mais</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: #FFC107;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+nav ul li a:hover{
+    font-weight: bold;
+}
+.icones {
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    margin-top: 8px;
+    gap: 15px;
+    margin-right: 10px;
+    
+    
+}
+
+.icones i {
+    font-size: 20px;
+    cursor: pointer;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2c100;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav a.active {
+  text-decoration: underline;
+}
+
+.icons span {
+  margin-left: 15px;
+  font-size: 1.2rem;
+}
+main {
+  padding: 40px;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+  width: fit-content;
+  border-bottom: 2px solid #FFC107;
+  padding-bottom: 5px;
+  margin: 50px 0px 60px 100px;
+  font-weight: 100;
+}
+
+.cartao {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  width:85%;
+  margin-left: 100px;
+
+}
+
+.info-basica h3,
+.info-adicional h3,
+.historico h3 {
+
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.grade-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.icone-carro {
+  grid-column: 3;
+  justify-self:end;
+  margin-top: -90px;
+  
+}
+
+textarea {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+        <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="../agendamento/agendamentos.html">Agendamentos</a></li>
+                <li><a href="../meuCarro/meusCarros.html">Carros</a></li>
+                <li><a href="../cadUsu/minhaConta.html">Minha Conta</a></li>
+            </ul>
+        </nav>
+        <div class="icones">
+            <a href="#"><img src="../imagens/icons8-sino-32.png" alt="Notificação" id="sino"></a>
+            <a href="../cadUsu/minhaConta.html"><img src="../imagens/icons8-usuário-32.png" alt="Usuário" id="user"></a>
+        </div>
+    </header>
+    <main>
+        <h2>Ver mais sobre o veículo selecionado:</h2>
+        <section class="cartao">
+          <div class="info-basica">
+            <h3>Informações básicas:</h3>
+            <div class="grade-info">
+              <p><strong>Placa:</strong></p>
+              <p><strong>Ano:</strong></p>
+              <p><strong>Marca:</strong></p>
+              <p><strong>Modelo:</strong></p>
+              <p><strong>Chassi:</strong></p>
+              <p><strong>Cor:</strong></p>
+              <div class="icone-carro"><img src="../imagens/icons8-automóvel-50.png" alt="" srcset=""></div>
+            </div>
+          </div>
+    
+          <div class="info-adicional">
+            <h3>Informações adicionais:</h3>
+            <textarea placeholder="Faça um relato breve sobre manutenções, reparos e entre outros que o carro já passou."></textarea>
+          </div>
+    
+          <div class="historico">
+            <h3>Histórico na mecânica</h3>
+          </div>
+        </section>
+      </main>
+
+
+</body>
+</html>

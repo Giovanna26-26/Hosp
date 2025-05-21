@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Veículo</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFC107;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+nav ul li a:hover{
+    font-weight: bold;
+}
+.icones {
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    margin-top: 8px;
+    gap: 15px;
+    margin-right: 10px;
+    
+    
+}
+
+.icones i {
+    font-size: 20px;
+    cursor: pointer;
+}
+h2 {
+    width: fit-content;
+    border-bottom: 2px solid #FFC107;
+    padding-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 100;
+    text-align: center;
+}
+.caixa{
+    background-color:rgba(255, 255, 255, 0.308) ;
+    width: 500px;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    align-items: center;
+}
+input{
+    margin: 10px 0 10px 65px;
+    width: 60% !important; 
+     padding: 12px;
+     background: transparent;
+     border: none;
+     border-bottom: 2px solid #FFC107;
+     color: #000000;
+     outline: none;
+     font-size: 16px;
+     align-items: center;
+    }
+    .cadastrar{
+    background: #FFC107;
+     border: none;
+     padding: 10px;
+     margin-top: 15px;
+     color: #000000;
+     font-size: 18px;
+     cursor: pointer;
+     border-radius: 5px;
+     
+    }
+    a{
+        text-decoration: none;
+        color: #000000;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="../agendamento/agendamentos.html">Agendamentos</a></li>
+                <li><a href="../meuCarro/meusCarros.html">Carros</a></li>
+                <li><a href="../cadUsu/minhaConta.html">Minha Conta</a></li>
+            </ul>
+        </nav>
+        <div class="icones">
+            <a href="#"><img src="../imagens/icons8-sino-32.png" alt="Notificação" id="sino"></a>
+            <a href="../cadUsu/minhaConta.html"><img src="../imagens/icons8-usuário-32.png" alt="Usuário" id="user"></a>
+        </div>
+    </header>
+    <h2>Cadastrar</h2>
+    <div class="caixa">
+ 
+            <form id="formulario">
+               
+                <input type="text" class="input" placeholder="Placa" required>
+                <input type="text" class="input" placeholder="Chassi" required>
+                <input type="text" class="input" placeholder="Marca" required>
+                <input type="text" class="input" placeholder="Modelo" required>
+                <input type="text" class="input" placeholder="Cor" required>
+
+                
+            </form>
+            <!-- <button type="submit" class="cadastrar"><a href="#">Enviar dados</a></button></a> -->
+             <!-- Botão MOVIDO para dentro do form e simplificado -->
+             <button type="submit" class="cadastrar">Enviar dados</button>
+        </div>
+    </div>
+    
+</body>
+</html>

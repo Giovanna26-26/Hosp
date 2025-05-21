@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Agendamento</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: #FFC107;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+nav ul li a:hover{
+    font-weight: bold;
+}
+.icones {
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    margin-top: 8px;
+    gap: 15px;
+    margin-right: 10px;
+    
+    
+}
+
+.icones i {
+    font-size: 20px;
+    cursor: pointer;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2c100;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav a.active {
+  text-decoration: underline;
+}
+
+.icons span {
+  margin-left: 15px;
+  font-size: 1.2rem;
+}
+main {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.etapas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.etapa {
+  background: #000;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+.etapa.active {
+  background: #f1c40f;
+  color: black;
+}
+
+.linha {
+  height: 4px;
+  width: 40px;
+  background: #ccc;
+}
+
+.conteudo-etapas section {
+  background: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  display: none;
+}
+
+.conteudo-etapas section.ativa {
+  display: block;
+}
+
+.veiculos {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.veiculo {
+  border: 1px solid #000;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.veiculo.vazio {
+  background-color: #ccc;
+}
+
+textarea {
+  width: 99%;
+  height: 100px;
+  resize: none;
+  padding: 10px;
+}
+
+button.proximo {
+  background: #f1c40f;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-left:100vh;
+}
+button.voltar {
+  background: #f1c40f;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 24px;
+  cursor: pointer;
+  
+}
+h2 {
+    width: fit-content;
+    border-bottom: 2px solid #FFC107;
+    padding-bottom: 5px;
+    margin: 20px 0px 20px 10px;
+    font-weight: 100;
+}
+.calendario {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.cabecalho-calendario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+#mes-ano {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+button#btn-anterior,
+button#btn-proximo {
+  background-color: #f1c40f;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button#btn-anterior:hover,
+button#btn-proximo:hover {
+  background-color: #d4ac0d;
+}
+
+.dias-semana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.grid-dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.grid-dias div {
+  text-align: center;
+  padding: 8px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.grid-dias div:hover {
+  background-color: #f1c40f;
+  color: #000;
+}
+.horarios {
+  margin-top: 20px;
+}
+
+.lista-horarios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.lista-horarios button {
+  padding: 8px 12px;
+  background-color: #f1c40f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.lista-horarios button:hover {
+  background-color: #d4ac0d;
+}
+
+.lista-horarios button.selecionado {
+  background-color: #000;
+  color: white;
+}
+</style>
+</head>
+<body>
+        <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="../agendamento/agendamentos.html">Agendamentos</a></li>
+                <li><a href="../meuCarro/meusCarros.html">Carros</a></li>
+                <li><a href="../cadUsu/minhaConta.html">Minha Conta</a></li>
+            </ul>
+        </nav>
+        <div class="icones">
+            <a href="#"><img src="../imagens/icons8-sino-32.png" alt="Notificação" id="sino"></a>
+            <a href="../cadUsu/minhaConta.html"><img src="../imagens/icons8-usuário-32.png" alt="Usuário" id="user"></a>
+        </div>
+        </header>
+        <main>
+            <h2>Novo Agendamento:</h2>
+        
+            <!-- Etapas -->
+            <div class="etapas">
+              <div class="etapa active">1</div>
+              <div class="linha"></div>
+              <div class="etapa">2</div>
+              <div class="linha"></div>
+              <div class="etapa">3</div>
+            </div>
+        
+            <!-- Conteúdo das etapas -->
+            <div class="conteudo-etapas">
+              <!-- Etapa 1 -->
+              <section class="etapa-conteudo ativa">
+                <h3>SELECIONE O VEÍCULO DESEJADO</h3>
+                <div class="veiculos">
+                  <div class="veiculo">🚗</div>
+                  <div class="veiculo">🚙</div>
+                  <div class="veiculo vazio"></div>
+                </div>
+                <button class="proximo">PRÓXIMO</button>
+              </section>
+        
+              <!-- Etapa 2 -->
+              <section class="etapa-conteudo">
+                <h3>ESCOLHA A DATA E HORÁRIO:</h3>
+                <div class="calendario">
+                        <div class="cabecalho-calendario">
+                          <button id="btn-anterior">◀</button>
+                          <span id="mes-ano"></span>
+                          <button id="btn-proximo">▶</button>
+                        </div>
+                        <div class="dias-semana">
+                          <div>D</div><div>S</div><div>T</div><div>Q</div><div>Q</div><div>S</div><div>S</div>
+                        </div>
+                        <div id="dias" class="grid-dias"></div>
+                </div>
+                <div class="horarios">
+                    <h4>Horários disponíveis:</h4>
+                    <div id="lista-horarios" class="lista-horarios"></div>
+                  </div>
+
+                <button class="voltar">⬅</button>
+                <button class="proximo">PRÓXIMO</button>
+                
+              </section>
+        
+              <!-- Etapa 3 -->
+              <section class="etapa-conteudo">
+                <h3>RELATE OS PROBLEMAS DO VEÍCULO:</h3>
+                <p>Conte o que está acontecendo com no máximo de 500 caracteres.</p>
+                <textarea placeholder="Ex: Barulho ao passar por lombadas, volante vibrando etc."></textarea>
+                <button class="voltar">⬅</button>
+                <button class="proximo">AGENDAR</button>
+              </section>
+            </div>
+          </main>
+
+                <script>
+                const botoes = document.querySelectorAll('.proximo');
+                const etapas = document.querySelectorAll('.etapa');
+                const conteudos = document.querySelectorAll('.etapa-conteudo');
+                
+                let etapaAtual = 0;
+                
+                botoes.forEach(botao => {
+                    botao.addEventListener('click', () => {
+                    if (etapaAtual < conteudos.length - 1) {
+                        conteudos[etapaAtual].classList.remove('ativa');
+                        etapas[etapaAtual].classList.remove('active');
+                        etapaAtual++;
+                        conteudos[etapaAtual].classList.add('ativa');
+                        etapas[etapaAtual].classList.add('active');
+                    } else {
+                        alert('Agendamento finalizado!');
+                    }
+                    });
+                });
+                const botoesVoltar = document.querySelectorAll('.voltar');
+
+                botoesVoltar.forEach(botao => {
+                botao.addEventListener('click', () => {
+                    if (etapaAtual > 0) {
+                    conteudos[etapaAtual].classList.remove('ativa');
+                    etapas[etapaAtual].classList.remove('active');
+                    etapaAtual--;
+                    conteudos[etapaAtual].classList.add('ativa');
+                    etapas[etapaAtual].classList.add('active');
+                    }
+                });
+                });
+            const mesAno = document.getElementById("mes-ano");
+            const diasContainer = document.getElementById("dias");
+            let dataAtual = new Date();
+
+            function gerarCalendario(data) {
+            diasContainer.innerHTML = "";
+
+            const ano = data.getFullYear();
+            const mes = data.getMonth();
+            const primeiroDia = new Date(ano, mes, 1).getDay();
+            const totalDias = new Date(ano, mes + 1, 0).getDate();
+
+            mesAno.textContent = data.toLocaleString('pt-BR', {
+                month: 'long',
+                year: 'numeric'
+            }).toUpperCase();
+
+            for (let i = 0; i < primeiroDia; i++) {
+                diasContainer.innerHTML += `<div></div>`;
+            }
+
+            for (let dia = 1; dia <= totalDias; dia++) {
+                diasContainer.innerHTML += `<div>${dia}</div>`;
+            }
+            }
+
+            document.getElementById("btn-anterior").addEventListener("click", () => {
+            dataAtual.setMonth(dataAtual.getMonth() - 1);
+            gerarCalendario(dataAtual);
+            });
+
+            document.getElementById("btn-proximo").addEventListener("click", () => {
+            dataAtual.setMonth(dataAtual.getMonth() + 1);
+            gerarCalendario(dataAtual);
+            });
+
+            gerarCalendario(dataAtual);
+
+            const horariosDisponiveis = [
+  "08:00", "09:00", "10:00",
+  "13:00", "14:00", "15:00", "16:00"
+];
+
+const listaHorarios = document.getElementById("lista-horarios");
+
+diasContainer.addEventListener("click", (e) => {
+  if (e.target.tagName === "DIV" && e.target.textContent !== "") {
+    const diaSelecionado = e.target.textContent;
+    
+    // Remove seleção anterior (se quiser destacar o dia)
+    [...diasContainer.children].forEach(div => div.classList.remove("selecionado"));
+    e.target.classList.add("selecionado");
+
+    // Gera os horários
+    mostrarHorarios(diaSelecionado);
+  }
+});
+
+function mostrarHorarios(dia) {
+  listaHorarios.innerHTML = "";
+  horariosDisponiveis.forEach(hora => {
+    const botao = document.createElement("button");
+    botao.textContent = hora;
+    botao.addEventListener("click", () => {
+      // Remove seleção anterior
+      document.querySelectorAll(".lista-horarios button").forEach(btn => {
+        btn.classList.remove("selecionado");
+      });
+      botao.classList.add("selecionado");
+    });
+    listaHorarios.appendChild(botao);
+  });
+}
+
+
+        </script>
+          
+        
+</body>
+</html>

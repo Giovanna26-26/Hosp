@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Histórico</title>
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: #FFC107;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+nav ul li a:hover{
+    font-weight: bold;
+}
+.icones {
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    margin-top: 8px;
+    gap: 15px;
+    margin-right: 10px;
+    
+    
+}
+
+.icones i {
+    font-size: 20px;
+    cursor: pointer;
+}
+        .ultimos-servicos table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 200px;
+    
+
+}
+
+.ultimos-servicos th, .ultimos-servicos td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.ultimos-servicos th {
+    background-color: #FFC107;
+}
+h2 {
+    width: fit-content;
+    border-bottom: 2px solid #FFC107;
+    padding-bottom: 5px;
+    margin: 50px 0px 60px 200px;
+    font-weight: 100;
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="../agendamento/agendamentos.html">Agendamentos</a></li>
+                <li><a href="../meuCarro/meusCarros.html">Carros</a></li>
+                <li><a href="../cadUsu/minhaConta.html">Minha Conta</a></li>
+            </ul>
+        </nav>
+        <div class="icones">
+            <a href="#"><img src="../imagens/icons8-sino-32.png" alt="Notificação" id="sino"></a>
+            <a href="../cadUsu/minhaConta.html"><img src="../imagens/icons8-usuário-32.png" alt="Usuário" id="user"></a>
+        </div>
+    </header>
+    
+    <section class="ultimos-servicos">
+        <div id="historico">
+            <h2>Meu Histórico:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Início</th>
+                        <th>Fim</th>
+                        <th>Modelo</th>
+                        <th>Placa</th>
+                        <th>Sintomas</th>
+                        <th>Observações</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

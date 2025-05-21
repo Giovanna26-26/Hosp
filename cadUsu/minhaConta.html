@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: #FFC107;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+nav ul li a:hover{
+    font-weight: bold;
+}
+.icones {
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    margin-top: 8px;
+    gap: 15px;
+    margin-right: 10px;
+    
+    
+}
+
+.icones i {
+    font-size: 20px;
+    cursor: pointer;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f2c100;
+  padding: 15px 30px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.nav a.active {
+  text-decoration: underline;
+}
+
+.icons span {
+  margin-left: 15px;
+  font-size: 1.2rem;
+}
+.content {
+    padding: 40px;
+}
+
+.content h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.history-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 100px;
+}
+
+.filters {
+    text-align: right;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f9f9f9;
+}
+h2 {
+    width: fit-content;
+    border-bottom: 2px solid #FFC107;
+    padding-bottom: 5px;
+    margin: 50px 0px 80px 100px;
+    font-weight: 100;
+}
+</style>
+</head>
+<body>
+        <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="../agendamento/agendamentos.html">Agendamentos</a></li>
+                <li><a href="../meuCarro/meusCarros.html">Carros</a></li>
+                <li><a href="../cadUsu/minhaConta.html">Minha Conta</a></li>
+            </ul>
+        </nav>
+        <div class="icones">
+            <a href="#"><img src="../imagens/icons8-sino-32.png" alt="Notificação" id="sino"></a>
+            <a href="../cadUsu/minhaConta.html"><img src="../imagens/icons8-usuário-32.png" alt="Usuário" id="user"></a>
+        </div>
+        </header>
+        <main class="content">
+            <h2>Meu histórico de serviços:</h2>
+            <div class="history-box">
+                <div class="filters">
+                    <label><input type="checkbox"> Data</label>
+                    <label><input type="checkbox"> Veículo</label>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Início</th>
+                            <th>Fim</th>
+                            <th>Modelo</th>
+                            <th>Placa</th>
+                            <th>Sintomas</th>
+                            <th>Observações</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Linhas de histórico aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </header>

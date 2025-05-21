@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços</title>
+    <style>
+                body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: #FFC107;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+nav ul li a:hover{
+    font-weight: bold;
+}
+.icones {
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    margin-top: 8px;
+    gap: 15px;
+    margin-right: 10px;
+    
+    
+}
+
+.icones i {
+    font-size: 20px;
+    cursor: pointer;
+}
+        h2 {
+    width: fit-content;
+    border-bottom: 2px solid #FFC107;
+    padding-bottom: 5px;
+    margin: 50px 0px 80px 180px;
+    font-weight: 100;
+}
+.service-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 80%;
+  margin: 30px auto;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  flex-grow: 1;
+  min-width: 280px;
+}
+
+.status-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-filters span {
+  font-weight: bold;
+}
+
+.status-filters label {
+  font-size: 14px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background-color: #f9f9f9;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="../historico/servicos.html">Serviços</a></li>
+                <li><a href="../mecanicoTela/carrosMecanico.html">Carros</a></li>
+                <li><a href="../historico/financas.html"> Finanças</a></li>
+                <li><a href="../cadUsu/usuario.html">Usuários</a></li>
+                
+            </ul>
+        </nav>
+        <div class="icones">
+            <a href="#"><img src="../imagens/icons8-sino-32.png" alt="Notificação" id="sino"></a>
+            <a href="../cadUsu/minhaConta.html" ><img src="../imagens/icons8-usuário-32.png" alt="Usuário" id="user"></a>
+        </div>
+    </header>
+    <section>
+        <h2>Lista de Serviços</h2>
+
+        <div class="service-box">
+            <div class="header">
+              <label for="search">Pesquisar:</label>
+              <input type="text" id="search" placeholder="data, placa, modelo, cliente...">
+          
+              <div class="status-filters">
+                <span>Status:</span>
+                <label><input type="checkbox"> Não iniciado</label>
+                <label><input type="checkbox"> Em andamento</label>
+                <label><input type="checkbox"> Finalizado</label>
+              </div>
+            </div>
+          
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Cliente</th>
+                    <th>Modelo</th>
+                    <th>Placa</th>
+                    <th>Gastos</th>
+                    <th>Ganhos</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+      
+                </tbody>
+              </table>
+            </div>
+          </div>
+    </section>
+    <script>
+async function carregarServicos(filtroTexto = '', filtroStatus = []) {
+    const params = new URLSearchParams();
+    if (filtroTexto) params.append('q', filtroTexto);
+    if (filtroStatus.length === 1) params.append('status', filtroStatus[0]);
+
+    const response = await fetch(`http://localhost:3000/api/servicos?${params.toString()}`);
+    const servicos = await response.json();
+
+    const tbody = document.querySelector('tbody');
+    tbody.innerHTML = '';
+
+    servicos.forEach(s => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${s.inicio}</td>
+            <td>${s.fim}</td>
+            <td>${s.cliente}</td>
+            <td>${s.modelo}</td>
+            <td>${s.placa}</td>
+            <td>R$ ${s.gastos.toFixed(2)}</td>
+            <td>R$ ${s.ganhos.toFixed(2)}</td>
+            <td>${s.status}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+document.getElementById('search').addEventListener('input', () => {
+    const texto = document.getElementById('search').value;
+    const statusSelecionados = Array.from(document.querySelectorAll('.status-filters input:checked'))
+                                     .map(cb => cb.nextSibling.textContent.trim());
+    carregarServicos(texto, statusSelecionados);
+});
+
+document.querySelectorAll('.status-filters input').forEach(cb => {
+    cb.addEventListener('change', () => {
+        const texto = document.getElementById('search').value;
+        const statusSelecionados = Array.from(document.querySelectorAll('.status-filters input:checked'))
+                                         .map(cb => cb.nextSibling.textContent.trim());
+        carregarServicos(texto, statusSelecionados);
+    });
+});
+
+// Inicial
+carregarServicos();
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!-- menu.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página do Cliente</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: #FFC107;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 200;
+}
+nav ul li a:hover{
+    font-weight: bold;
+}
+.icones {
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+    margin-top: 8px;
+    gap: 15px;
+    margin-right: 10px;
+    
+    
+}
+
+.icones i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+
+.container-carros {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.cartao-carro {
+    display: flex;
+    align-items: flex-start; 
+    gap: 15px; 
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left; 
+    width: 400px;
+}
+
+.cartao-carro i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    
+}
+
+.cartao-carro p {
+    margin: 5px 0;
+
+}
+
+.status {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 20px;
+}
+
+.verde {
+    color: green;
+}
+
+.amarelo {
+    color: orange;
+}
+
+.ultimos-servicos table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 200px;
+
+}
+
+.ultimos-servicos th, .ultimos-servicos td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+.ultimos-servicos th {
+    background-color: #FFC107;
+}
+h2 {
+    width: fit-content;
+    border-bottom: 2px solid #FFC107;
+    padding-bottom: 5px;
+    margin: 50px 0px 80px 180px;
+    font-weight: 100;
+}
+
+.acoes{
+width: 200px;
+height: 90px;
+display: inline-flex;
+background-color: white;
+padding: 10px 10px;
+border-radius: 10px;
+margin-left: -70px;
+}
+.acoes p {
+    margin-top: 32px;
+    
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-left: 50px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.usuario {
+    display: flex;
+    align-items: center; /* Mantém alinhado verticalmente */
+    gap: 15px; /* Espaço entre a imagem e o texto */
+    margin-left: 180px; /* Deixa o conteúdo alinhado à esquerda */
+}
+
+.usuario img {
+    width: 50px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: 50px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Garante que a imagem preencha corretamente */
+}
+
+.usuario p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <ul>
+                <li><a href="../agendamento/agendamentos.html">Agendamentos</a></li>
+                <li><a href="../meuCarro/meusCarros.html">Carros</a></li>
+                <li><a href="../cadUsu/minhaConta.html">Minha Conta</a></li>
+            </ul>
+        </nav>
+        <div class="icones">
+            <a href="#"><img src="../imagens/icons8-sino-32.png" alt="Notificação" id="sino"></a>
+            <a href="../cadUsu/minhaConta.html"><img src="../imagens/icons8-usuário-32.png" alt="Usuário" id="user"></a>
+        </div>
+    </header>
+    
+    
+    <main>
+        <section class="usuario">
+            <img src="../imagens/carro3.jpg" alt="Foto do usuário">
+            <p>Olá, usuário!</p>
+        </section>
+
+        <section class="acoes-rapidas">
+            <h2>Ações Rápidas:</h2>
+            <div class="botoes">
+                <a href="">
+                    <div class="acoes"><img src="../imagens/icons8-calendário-90.png" alt="" srcset=""><i class="fas fa-calendar-alt"></i> <p>Agendar visita</p></div>
+                </a>
+                <a href="">
+                    <div class="acoes" ><img src="../imagens/icons8-lista-90.png" alt=""><i class="fas fa-history"></i> <p>Ver histórico</p></div>
+                </a>
+                <a href="">
+                    <div class="acoes"><img src="../imagens/img.icons8.png" alt=""><i class="fas fa-plus-circle"></i> <p>Adicionar veículo</p></div>
+                </a>
+            </div>
+        </section>
+
+        <section class="meus-veiculos">
+            <h2>Meus Veículos:</h2>
+            <div class="container-carros" id="lista-carros">
+                <div class="cartao-carro">
+                    <img src="../imagens/icons8-automóvel-90.png" alt="Carros" id="carros">
+                    <p><strong>Modelo:</strong> -</p>
+                    <p><strong>Marca:</strong> -</p>
+                    <p><strong>Placa:</strong> -</p>
+                    <span class="status verde">✔</span>
+                </div>
+                <div class="cartao-carro">
+                    <img src="../imagens/icons8-automóvel-90.png" alt="Carros" id="carros">
+                    <p><strong>Modelo:</strong> -</p>
+                    <p><strong>Marca:</strong> -</p>
+                    <p><strong>Placa:</strong> -</p>
+                    <span class="status amarelo">⌛</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="ultimos-servicos">
+            <h2>Últimos Serviços:</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Início</th>
+                        <th>Fim</th>
+                        <th>Modelo</th>
+                        <th>Placa</th>
+                        <th>Sintomas</th>
+                        <th>Observações</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <script>
+    // Captura o nome da URL
+    const urlParams = new URLSearchParams(window.location.search);
+     const nomeUsuario = decodeURIComponent(urlParams.get('nome'));
+
+if (nomeUsuario) {
+    document.getElementById('saudacao').textContent = `Bem-vindo, ${nomeUsuario}!`;
+} else {
+    window.location.href = '/'; // Redireciona se não tiver nome
+}
+
+
+    // Atualiza a saudação
+    document.querySelector('.usuario p').textContent = `Olá, ${nomeUsuario || 'usuário'}!`;
+</script>
+
+    </main>
+    <script>
+    async function carregarCarros() {
+        try {
+            const response = await fetch('http://localhost:3000/api/carros');
+            const carros = await response.json();
+
+            const container = document.getElementById('lista-carros');
+            container.innerHTML = '';
+
+            if (!carros.length) {
+                container.innerHTML = '<p>Nenhum veículo cadastrado.</p>';
+                return;
+            }
+
+  carros.forEach(carro => {
+    const card = document.createElement('div');
+    card.className = 'cartao-carro';
+    card.innerHTML = `
+        <img src="../imagens/icons8-automóvel-90.png" alt="Carro">
+        <div>
+            <p><strong>Modelo:</strong> ${carro.modelo}</p>
+            <p><strong>Marca:</strong> ${carro.marca}</p>
+            <p><strong>Placa:</strong> ${carro.placa}</p>
+            <p><strong>Cor:</strong> ${carro.cor}</p>
+        </div>
+    `;
+    container.appendChild(card);
+});
+        } catch (error) {
+            console.error('Erro ao carregar carros:', error);
+            document.getElementById('lista-carros').innerHTML = '<p>Erro ao carregar veículos.</p>';
+        }
+    }
+
+    carregarCarros();
+</script>
+
+</body>
+</html>
+

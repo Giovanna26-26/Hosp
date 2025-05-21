@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HospCar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+#cabecalho {
+    background-color: #222;
+    color: #ffcc00;
+    text-align: center;
+    padding: 20px;
+}
+h1{
+    text-align: center;
+}
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #333;
+    color: #ffcc00;
+}
+#hero p{
+    text-align: center;
+}
+
+.botao {
+    background-color: #ffcc00;
+    color: #222;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#sobre, #servicos, #clientes, #contato {
+    padding: 50px;
+    
+}
+
+.container-servicos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.servico {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+#rodape {
+    background-color: #222;
+    color: #ffcc00;
+    text-align: center;
+    padding: 20px;
+}
+.conteudo-sobre {
+    display: flex;  /* Alinha a imagem e o texto lado a lado */
+    align-items: center; /* Mantém alinhado verticalmente */
+    gap: 20px; /* Espaçamento entre os elementos */
+    max-width: 1000px; 
+    margin: 0 auto; /* Centraliza na página */
+}
+
+#carro-sobre img {
+    margin-left: -100px;
+    height: auto;
+    max-height: 300px;
+}
+
+.texto-sobre {
+    flex: 1; /* Ocupa o espaço restante ao lado da imagem */
+    margin: 0px 0px 0px 10px;
+    text-align: justify;
+    line-height:1.2 ;
+    font-weight: 500;
+    
+}
+
+h2{
+    text-align: center;
+}
+#clientes {
+    padding: 50px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.depoimentos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite quebra em telas menores */
+}
+
+.cliente {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: center;
+    font-style: italic;
+    border-left: 5px solid #ffcc00;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cliente:hover {
+    transform: scale(1.05);
+}
+
+.cliente p {
+    margin-bottom: 10px;
+}
+
+.cliente span {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-top: 10px;
+}
+#contato {
+    padding: 50px;
+    background-color: #333;
+    color: #ffcc00;
+    text-align: center;
+    align-items: center;
+}
+
+#contato h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.campo {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ffcc00;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #444;
+    color: #ffcc00;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    width: 450px;
+}
+
+.campo:focus {
+    border-color: #fff;
+    width: 450px;
+}
+
+textarea.campo {
+    width: 450px;
+    height: 90px;
+}
+
+.botao {
+    background-color: #ffcc00;
+    color: #222;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+    width: 480px;
+}
+
+.botao:hover {
+    background-color: #e6b800;
+    transform: scale(1.05);
+}
+#servicos{
+    background-color:#444 ;
+
+}
+#servicos h2{
+    color: #e6b800;
+}
+a{
+    color: black;
+}
+    </style>
+</head>
+<body>
+    <header id="cabecalho">
+        
+    </header>
+    
+    <section id="hero">
+        <div class="texto-hero">
+            <h1>Família Suspensão</h1>
+            <p>Venha agendar o seu horário!</p>
+            <button class="botao">Agendar</button>
+        </div>
+        <img src="../imagens/carro4.jpg" alt="Carro esportivo">
+    </section>
+    
+    <section id="sobre">
+        <h2>Sobre</h2>
+        <div class="conteudo-sobre">
+            <div id="carro-sobre">
+                <img src="../imagens/carro3.jpg" alt="Outro carro esportivo">
+            </div>
+            <div class="texto-sobre">
+                <p>A Mecânica Familia Suspensão é referência quando se trata de manutenção e reparo de sistemas de suspensão, garantindo conforto, segurança e desempenho para o seu veículo. Nossa equipe especializada trabalha com tecnologia de ponta para oferecer serviços de alta qualidade, desde a troca de amortecedores e molas até alinhamento e balanceamento, sempre com transparência e compromisso com o cliente.
+
+                    Para tornar sua experiência ainda mais prática, utilizamos o HospCar, um software de agendamento eficiente que permite marcar seus serviços de forma rápida e conveniente. Com ele, você pode escolher o melhor horário para sua manutenção sem complicações, garantindo um atendimento ágil e personalizado.
+                    
+                    Confie na Mecânica Familia Suspensão para cuidar do seu carro com a excelência que você merece! Agende seu atendimento pelo HospCar e garanta a melhor performance para seu veículo.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="clientes">
+        <h2>O que nossos clientes dizem?</h2>
+        <div class="depoimentos">
+            <div class="cliente">
+                <p>"Ótimo serviço! Meu carro nunca esteve melhor."</p>
+                <span>- João Silva</span>
+            </div>
+            <div class="cliente">
+                <p>"Atendimento excelente e muito profissional."</p>
+                <span>- Maria Souza</span>
+            </div>
+            <div class="cliente">
+                <p>"Atendimento excelente e muito profissional."</p>
+                <span>- Maria Souza</span>
+            </div>
+          
+        </div>
+    </section>
+    
+    <section id="contato">
+        <h2>Fale Conosco</h2>
+        <form>
+            <input type="text" placeholder="Nome" class="campo">
+            <input type="email" placeholder="Email" class="campo">
+            <textarea placeholder="Mensagem" class="campo"></textarea>
+            <button type="submit" class="botao">Enviar</button>
+        </form>
+    </section>
+    
+    <footer id="rodape">
+        <p>&copy; 2025 Família Suspensão. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

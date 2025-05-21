@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esqueci Minha Senha</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+ body {
+     background: url('../imagens/carro.jpg') no-repeat center center/cover;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+   .container {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #fdfdfd;
+      text-align: center;
+    }
+
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #3d3d3d;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #efd007;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #deb80c;
+    }
+
+    .voltar {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #f3b909;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .voltar:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Esqueci Minha Senha</h2>
+    <form action="/recuperar-senha" method="POST">
+      <input type="email" name="email" placeholder="Digite seu e-mail" required>
+      <button type="submit">Enviar link de recuperação</button>
+    </form>
+    <a class="voltar" href="../cadUsu/index.html">Voltar ao login</a>
+  </div>
+</body>
+</html>
+
